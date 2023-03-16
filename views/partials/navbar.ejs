@@ -1,0 +1,44 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top bg-transparent">
+ <div class="container-fluid">
+  <a class="navbar-brand" href="/items"> <img src="https://res.cloudinary.com/dyoynbt7i/image/upload/v1678878592/Menu/icon/logo_e6ntbe.png" alt="" width="30" height="24" class="d-inline-block align-text-top">
+    </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="navbar-nav">
+                <!-- <a class="nav-link active" href="/items">Home</a>
+                <a class="nav-link" href="/items">Items</a> -->
+                <% if(currentUser){ %>
+                <% if(currentUser.username=='admin'){ %>
+                <a class="nav-link" href="/items/new">New Item</a>
+                <% } %>
+                <% }%>
+            </div>
+            <!-- <form class="navbar-nav d-flex ml-auto" action="" method="GET">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <input class="me-2" style="width: 15rem" type="search" id="search-bar" placeholder="looking for something specific? ">
+            <button class="btn btn-sm  btn-outline-primary" type="submit">Search</button>
+            </form> -->
+            <div class="navbar-nav ml-auto">
+                <% if(!currentUser){ %>
+                    <a href="/login" class="nav-link">Login</a>
+                    <a href="/register" class="nav-link">Register</a>
+                    <% }else{ %>
+                        <!-- <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+  
+  <option value="1"><%=currentUser.username %></option>
+  <option value="2"><a href="/logout" class="nav-link">Logout</a></option>
+  
+</select> -->          
+                        <b class="mr-2 pt-2"><%=currentUser.username %></b>
+                        
+                        <a href="/logout" class="nav-link">Logout</a>
+                        
+                        <% } %>
+            </div>
+        </div>
+    </div>
+</div>
+</nav>

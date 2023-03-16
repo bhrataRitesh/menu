@@ -1,0 +1,35 @@
+<% layout('/layouts/boilerplate') %>
+   <div class="row">
+    <h1 class="text-center">New Item</h1>
+    <div class="col-md-6 offset-md-3">
+            <form action="/items" method="POST" novalidate class="validated-form" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label class="form-label" for="title">Title</label>
+                    <input class="form-control" type="text" id="title" name="item[title]" required>
+                    <div class="valid-feedback">Looks good</div>
+                </div>
+                               
+                <div class="mb-3">
+                    <label class="form-label" for="price">Price</label>
+                    <div class="input-group">
+                        <span class="input-group-text" id="price-label">₹</span>
+                        <input type="text" class="form-control" placeholder="0.00" aria-label="price" id="price"
+                            aria-describedby="price-label" name="item[price]" required>
+                        <div class="valid-feedback">Looks good</div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="description">Description</label>
+                    <textarea class="form-control" type="text" id="description" name="item[description]"
+                        required></textarea>
+                    <div class="valid-feedback">Looks good</div>
+                </div>
+                <div class="mb-3">
+                    <label for="image" class="form-label">Choose Image(s)...</label>
+                    <input class="form-control" type="file" name="image" id="formFileMultiple" >
+                </div>
+                <div class="mb-3"><button class="btn btn-success">Add Item</button></div>
+                <a href="/items">ALL Items</a>
+            </form>
+        </div>
+    </div>

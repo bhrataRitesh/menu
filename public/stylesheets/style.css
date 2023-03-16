@@ -1,0 +1,90 @@
+
+
+body {
+  background-color: rgb(179, 179, 179);
+}
+
+/* nav bar */
+
+
+
+/* nav {
+  margin: 10px;
+
+
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  display: flex;
+  justify-content: space-around;
+
+
+  box-shadow: 3px;
+}*/
+
+nav img {
+  width: 40px;
+  height: 40px;
+}
+/*
+nav ul {
+  display: flex;
+  flex-direction: row;
+}
+
+nav ul li {
+  padding: 10px 25px;
+  position: left;
+}
+
+nav ul li a {
+  text-decoration: none;
+  font-family: "Roboto Mono", monospace;
+  font: bold;
+  font-size: large;
+  color: rgb(39, 38, 38);
+} */
+
+/* nav input {
+  display: block;
+  border-radius: 1.25rem;
+  width: 25%;
+  background: transparent;
+  background: url(https://res.cloudinary.com/dyoynbt7i/image/upload/v1678878591/Menu/icon/search_wonvh2.png) no-repeat left;
+  background-size: 8%;
+  background-position-x: 8px;
+  padding-left: 40px;
+  font-size: medium;
+  box-shadow: 3px grey;
+  border: 1;
+  outline: 0;
+  color: #4e5458;
+  border-color: initial;
+  height: 50px;
+}
+::placeholder {
+  color: lightgrey;
+} */
+
+/* navbar over */
+
+
+
+
+@media screen and (max-width:500px){ 
+    #curations{
+    /* flex-direction: column; */
+flex-wrap: wrap;
+}
+#curations li{
+width: 50%;
+margin: auto;
+margin-bottom: 10%;
+}
+#search-bar{
+width: 100%;}
+
+#user-logo{
+display: none;
+}
+
+}
+
