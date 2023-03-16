@@ -152,7 +152,7 @@ app.use('/', userRoutes);
 
 app.get('/', async(req, res) => {
     const items = await Item.find({});
-    res.render('home', { items })
+    res.render('index', { items })
 })
 
 
