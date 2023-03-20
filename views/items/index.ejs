@@ -3,10 +3,10 @@
 <h1 class="mt-3 text-center">All Items</h1>
 <!-- <div><a href="/items/new">Create new</a></div> -->
 <ul style="padding-left:0px">
-<div class="d-flex flex-wrap justify-content-between">
+<div class="d-flex flex-wrap justify-content-around">
   <% for (let item of items) {%>
 
-  <div class="card  mb-5 bg-transparent border-0 ml-3" style="width: 8rem">
+  <div class="card  mb-5 bg-transparent border-1 ml-3" style="width: 8rem">
     <a class="link-dark" href="/items/<%= item._id %> ">
       
     <% if(item.image.length){ %>
@@ -20,13 +20,13 @@
     <% } %>
     </a>
 
-    <div class="card-body">
+    <div class="card-body text-left">
       <h5 class="card-title"><%= item.title %></h5>
       
 
       
   <p class="card-text">
-        <small class="text-mute">₹ <%= item.price %> </small>
+        <b class="text-mute">₹ <%= item.price %> </b>
       </p>
     </div>
   </div>
