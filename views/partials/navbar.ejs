@@ -23,11 +23,11 @@
             </form> -->
             <div class="navbar-nav ml-auto">
                 <% if(!currentUser){ %>
-                  <button class="btn btn-sm btn-primary">
+                  <button class="btn btn-sm btn-primary" style="margin-left:10px; margin-top:5px;">
                     <a href="/login" class="nav-link">Login</a>
                   </button>
 
-                  <button class="btn btn-sm btn-primary"  style="margin-left:10px;">
+                  <button class="btn btn-sm btn-primary"  style="margin-left:10px; margin-top:5px;">
                     <a href="/register" class="nav-link">Register</a>
                   </button>
                     <% }else{ %>
@@ -37,8 +37,8 @@
   <option value="2"><a href="/logout" class="nav-link">Logout</a></option>
   
 </select> -->          
-                        <b class="mr-2 pt-2"><%=currentUser.username.toUpperCase() %></b>
-                        <button class="btn btn-sm btn-danger"  style="margin-left:10px;">
+                        <h3 class="mr-2 pt-2" style="margin-left:10px; margin-top:5px;"><%=currentUser.username.toUpperCase() %></h3>
+                        <button class="btn btn-sm btn-danger"  style="margin-left:10px; margin-top:5px;">
                         <a href="/logout" class="nav-link">Logout</a>
                         </button>
                         
