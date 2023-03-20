@@ -23,8 +23,13 @@
             </form> -->
             <div class="navbar-nav ml-auto">
                 <% if(!currentUser){ %>
+                  <button class="btn btn-sm btn-primary">
                     <a href="/login" class="nav-link">Login</a>
+                  </button>
+
+                  <button class="btn btn-sm btn-primary"  style="margin-left:10px;">
                     <a href="/register" class="nav-link">Register</a>
+                  </button>
                     <% }else{ %>
                         <!-- <select class="form-select form-select-sm" aria-label=".form-select-sm example">
   
@@ -33,7 +38,7 @@
   
 </select> -->          
                         <b class="mr-2 pt-2"><%=currentUser.username.toUpperCase() %></b>
-                        <button class="btn btn-sm btn-danger">
+                        <button class="btn btn-sm btn-danger"  style="margin-left:10px;">
                         <a href="/logout" class="nav-link">Logout</a>
                         </button>
                         
