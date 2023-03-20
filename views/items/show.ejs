@@ -71,8 +71,14 @@
     
   </div>
   <div class="mb-3" style="width: 18rem">
+
+    <% if(!currentUser){ %>
+      <h3>Reviews</h3>
+      <br>
+    <% } %>
     <% if(currentUser){ %>
     <h3>Leave a Review</h3>
+    <br>
     <form
       action="/items/<%=item._id%>/reviews"
       method="POST"
