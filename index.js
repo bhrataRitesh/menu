@@ -151,10 +151,14 @@ app.use('/items/:id/reviews', reviewRoutes)
 app.use('/', userRoutes);
 
 app.get('/', async(req, res) => {
-    const items = await Item.find({});
-    res.render('items/index', { items })
+    // const items = await Item.find({});
+    res.redirect('/home')
 })
 
+app.get('/home', async (req, res) => {
+    // const items = await Item.find({});
+    res.render('home')
+})
 
 
 app.all('*', (req, res, next) => {

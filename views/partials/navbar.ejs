@@ -1,50 +1,62 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top bg-transparent">
- <div class="container-fluid">
-  <a class="navbar-brand" href="/items"> <img src="https://res.cloudinary.com/dyoynbt7i/image/upload/v1678878592/Menu/icon/logo_e6ntbe.png" alt="" width="30" height="24" class="d-inline-block align-text-top">
+<!-- Favicons -->
+<link href="/assets/img/favicon.png" rel="icon">
+<link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Amatic+SC:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+
+<!-- Vendor CSS Files -->
+<link href="/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+<link href="/assets/vendor/aos/aos.css" rel="stylesheet">
+<link href="/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+<link href="/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+<!-- Template Main CSS File -->
+<link href="/assets/css/main.css" rel="stylesheet">
+
+<header id="header" class="header fixed-top d-flex align-items-center">
+  <div class="container d-flex align-items-center justify-content-between">
+
+    <a href="/" class="logo d-flex align-items-center me-auto me-lg-0">
+     
+      <!-- <img src="assets/img/logo.png" alt=""> -->
+      <h1>Birju<span>.</span></h1>
     </a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
 
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <div class="navbar-nav">
-                <!-- <a class="nav-link active" href="/items">Home</a>
-                <a class="nav-link" href="/items">Items</a> -->
-                <% if(currentUser){ %>
-                <% if(currentUser.username=='admin'){ %>
-                <a class="nav-link" href="/items/new">New Item</a>
-                <% } %>
-                <% }%>
-            </div>
-            <!-- <form class="navbar-nav d-flex ml-auto" action="" method="GET">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <input class="me-2" style="width: 15rem" type="search" id="search-bar" placeholder="looking for something specific? ">
-            <button class="btn btn-sm  btn-outline-primary" type="submit">Search</button>
-            </form> -->
-            <div class="navbar-nav ml-auto">
-                <% if(!currentUser){ %>
-                  <button class="btn btn-sm btn-primary" style="margin-left:10px; margin-top:5px;">
-                    <a href="/login" class="nav-link">Login</a>
-                  </button>
+    <nav id="navbar" class="navbar">
+      <ul>
+        <li><a href="/home#hero">Home</a></li>
+        <li><a href="/home#about">About</a></li>
+        <li><a href="/home#menu">Menu</a></li>
+        <li><a href="/home#events">Events</a></li>
+        <li><a href="/home#chefs">Chefs</a></li>
+        <li><a href="/home#gallery">Gallery</a></li>
+      
+        <li class="dropdown"><a <%if(!currentUser){%>href="/login" <% }else{ %>href="#" <% } %>><span><%if(currentUser){%><%=currentUser.username.toUpperCase()%> <% }else{ %> Login <% } %></span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+          <ul>
+            <%if(!currentUser){%>
+            <li><a href="/register">Register</a></li>
+            <% } %>
+            <%if(currentUser){%>
+            <li><a href="/logout">Logout</a></li>
+            <% } %>
+          </ul>
+        </li>
+        
+        <% if(currentUser){ %>
+        <% if(currentUser.username=='admin'){ %>
+        <li><a href="/items/new">New</a></li>
+        <% } %>
+        <% }%>
+      </ul>
+    </nav><!-- .navbar -->
 
-                  <button class="btn btn-sm btn-primary"  style="margin-left:10px; margin-top:5px;">
-                    <a href="/register" class="nav-link">Register</a>
-                  </button>
-                    <% }else{ %>
-                        <!-- <select class="form-select form-select-sm" aria-label=".form-select-sm example">
-  
-  <option value="1"><%=currentUser.username %></option>
-  <option value="2"><a href="/logout" class="nav-link">Logout</a></option>
-  
-</select> -->          
-                        <h3 class="mr-2 pt-2" style="margin-left:10px; margin-top:5px;"><%=currentUser.username.toUpperCase() %></h3>
-                        <button class="btn btn-sm btn-danger"  style="margin-left:10px; margin-top:5px;">
-                        <a href="/logout" class="nav-link">Logout</a>
-                        </button>
-                        
-                        <% } %>
-            </div>
-        </div>
-    </div>
-</div>
-</nav>
+    <a class="btn-book-a-table" href="/items">Book a Table</a>
+    <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+    <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+
+  </div>
+</header><!-- End Header -->

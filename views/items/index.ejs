@@ -1,37 +1,28 @@
 <% layout('/layouts/boilerplate') %>
+<link rel="stylesheet" href="/stylesheets/index-card.css">
 
-<h1 class="mt-3 text-center">All Items</h1>
-<!-- <div><a href="/items/new">Create new</a></div> -->
-<ul style="padding-left:0px">
-<div class="d-flex flex-wrap justify-content-around">
-  <% for (let item of items) {%>
 
-  <div class="card  mb-5 bg-transparent border-1 ml-3" style="width: 10rem">
-    <a class="link-dark" href="/items/<%= item._id %> ">
+
+<ul class="cards pt-5">
+<% for (let item of items) {%>
+  <li>
+    <a href="/items/<%= item._id %>" class="card">
+      <% if(item.image.length){ %>
+      <img src="<%= item.image[0].url %>"  class=" card__image" alt="" />
       
-    <% if(item.image.length){ %>
-    <img class="card-img-top rounded-circle" alt="" src="<%= item.image[0].url %> " />
-    <% } else { %>
-    <img
-      class="card-img-top"
-      alt=""
-      src="https://res.cloudinary.com/dyoynbt7i/image/upload/v1677863515/cld-sample-5.jpg"
-    />
-    <% } %>
-    </a>
-
-    <div class="card-body text-left">
-      <h5 class="card-title"><%= item.title %></h5>
-      
-
-      
-  <p class="card-text">
-        <b class="text-mute">₹ <%= item.price %> </b>
-      </p>
-    </div>
-  </div>
-
-
+      <div class="card__overlay ">
+        <div class="card__header">
+          <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                     
+          <img class="card__thumb" src="<%= item.image[0].url %>" alt="" />
+<% }%>
+          <div class="card__header-text ">
+            <h3 class="card__title"><%= item.title %></h3>            
+            <span class="card__price">₹ <%= item.price %></span>
+          </div>
+        </div>
+        <p class="card__description"><%= item.description %></p>
+      </div>
+    </a>      
+  </li>
   <% } %>
-</div>
 </ul>

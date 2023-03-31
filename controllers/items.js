@@ -16,13 +16,6 @@ module.exports.renderNewForm = (req, res) => {
     }
 }
 module.exports.createItem = async (req, res, next) => {
-    // if (!req.body.campground) throw new ExpressError('Invalid Campground Data', 400);
-
-    // const geoData = await geocoder.forwardGeocode({
-    //     query: req.body.campground.location,
-    //     limit: 1
-    // }).send()
-
     
 
 
@@ -71,11 +64,11 @@ module.exports.renderEditForm = async (req, res) => {
     res.render('items/edit', { item })
 }
 module.exports.updateItem = async (req, res) => {
-    // res.send('It WOrkded')
+    
 
     const { id } = req.params;
 
-    // console.log(req.body)
+   
 
     const item = await Item.findByIdAndUpdate(id, { ...req.body.item })
     const imgs = req.files.map(f => ({ url: f.path, filename: f.filename }));

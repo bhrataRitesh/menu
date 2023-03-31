@@ -15,10 +15,10 @@ module.exports.createReview = async (req, res) => {
 module.exports.deleteReview = async (req, res) => {
     const { id, reviewId } = req.params;
     await Item.findByIdAndUpdate(id, { $pull: { reviews: reviewId } })
-    // it just pull anything from id of review
+    
     await Review.findByIdAndDelete(reviewId)
     req.flash('success', 'successfully deleted review');
     res.redirect(`/items/${id}`);
-    // res.send("Delete ME")
+    
 
 }

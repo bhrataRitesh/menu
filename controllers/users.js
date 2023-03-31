@@ -42,7 +42,7 @@ module.exports.renderLogin = (req, res) => {
         
         return res.render('users/login');
     } else {
-        req.flash('error', 'You are already logged IN ')
+        req.flash('error', 'You are already logged In ')
         return res.redirect('/items');
     }
     
