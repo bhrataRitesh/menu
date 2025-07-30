@@ -83,21 +83,21 @@ const scriptSrcUrls = [
     "https://stackpath.bootstrapcdn.com",
     "https://kit.fontawesome.com",
     "https://cdnjs.cloudflare.com",
-    
+
     "https://cdn.jsdelivr.net",
     "https://code.jquery.com/",
 ];
 const styleSrcUrls = [
     "https://kit-free.fontawesome.com",
     "https://stackpath.bootstrapcdn.com",
-    
-    
+
+
     "https://fonts.googleapis.com",
     "https://use.fontawesome.com",
     "https://cdn.jsdelivr.net",
 ];
 // const connectSrcUrls = [
-   
+
 // ];
 const fontSrcUrls = [];
 app.use(
@@ -150,7 +150,7 @@ app.use('/items', itemRoutes)
 app.use('/items/:id/reviews', reviewRoutes)
 app.use('/', userRoutes);
 
-app.get('/', async(req, res) => {
+app.get('/', async (req, res) => {
     // const items = await Item.find({});
     res.redirect('/home')
 })
@@ -167,13 +167,14 @@ app.all('*', (req, res, next) => {
 
 app.use((err, req, res, next) => {
     const { statusCode = 500, message = 'Something Went Wrong' } = err;
-    if (!err.message) err.message = 'Oh No, Something WEnt wrong!'
+    if (!err.message) err.message = 'Oh No, Something Went wrong!'
     res.status(statusCode).render('error', { err });
     console.log(err)
-    
+
 })
 
 const PORT = process.env.PORT || 2000;
 app.listen(PORT, () => {
     console.log(`you are listening port ${PORT}`);
+    console.log(`http://localhost:${PORT}/home`);
 })

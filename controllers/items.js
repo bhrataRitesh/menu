@@ -16,19 +16,14 @@ module.exports.renderNewForm = (req, res) => {
     }
 }
 module.exports.createItem = async (req, res, next) => {
-    
-
-
     const item = new Item(req.body.item);
     if (req.user.username == 'admin') {
         item.image = req.files.map(f => ({ url: f.path, filename: f.filename }));
         item.author = req.user._id;
-
-
         await item.save();
         console.log(item);
         req.flash('success', 'Successfully made a new item!');
-       return res.redirect(`/items/${item._id}`)
+        return res.redirect(`/items/${item._id}`)
     } else {
         req.flash('error', 'You are not allowed to create New Items')
         return res.redirect('/items');
@@ -64,11 +59,11 @@ module.exports.renderEditForm = async (req, res) => {
     res.render('items/edit', { item })
 }
 module.exports.updateItem = async (req, res) => {
-    
+
 
     const { id } = req.params;
 
-   
+
 
     const item = await Item.findByIdAndUpdate(id, { ...req.body.item })
     const imgs = req.files.map(f => ({ url: f.path, filename: f.filename }));
